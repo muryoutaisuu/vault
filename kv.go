@@ -2,7 +2,7 @@ package vaulthelper
 
 import (
 	"path"
-	//"fmt"
+	"fmt"
 
 	//"github.com/hashicorp/vault/api"
 	pfkv "github.com/postfinance/vault/kv"
@@ -44,6 +44,14 @@ func IsKey(pfc *pfkv.Client, vpath string) bool {
 		}
 	}
 	return false
+}
+
+func GetValueFromKey(pfc *pfkv.Client, vpath string) (string, error) {
+	if IsKey(pfc, vpath) {
+		s, _ := pfc.Read(path.Dir(vpath))
+		return s[path.Base(vpath)].(string), nil
+	}
+	return "", fmt.Errorf("Key '%s' or Secret '%s' not found\n", path.Base(vpath), path.Dir(vpath))
 }
 
 // GetType returns type of the requested resource
