@@ -12,10 +12,10 @@ import (
 type Filetype byte
 
 const (
-	CNull			Filetype = 0 // not a valid vault element
-	CPath			Filetype = 1 // exists in Vault as a directory
-	CSecret		Filetype = 2 // exists in Vault as a secret
-	CKey			Filetype = 3 // Key of a key=value pair in a secret, secret/path/to/secret/CKEY
+	CNull   Filetype = 0 // not a valid vault element
+	CPath   Filetype = 1 // exists in Vault as a directory
+	CSecret Filetype = 2 // exists in Vault as a secret
+	CKey    Filetype = 3 // Key of a key=value pair in a secret, secret/path/to/secret/CKEY
 )
 
 func IsPath(pfc *pfkv.Client, vpath string) bool {
@@ -39,7 +39,7 @@ func IsKey(pfc *pfkv.Client, vpath string) bool {
 	vpath = path.Dir(vpath) // clip last element
 	s, err := pfc.Read(vpath)
 	if err == nil && s != nil {
-		if _,ok := s[k]; ok {
+		if _, ok := s[k]; ok {
 			return true
 		}
 	}
