@@ -78,11 +78,11 @@ func GetTypes(pfc *pfkv.Client, vpath string) map[Filetype]bool {
 	r[CSecret] = IsSecret(pfc, vpath)
 
 	// if else statement here is needed, case of:
-	//   E1             							-> secret
-	//   E1/mysecret = 42							-> key=mysecret value=42
-	//   E1/            							-> subdir in Vault
-	//   E1/subsecret   							-> secret
-	//   E1/subsecret/mysecret = 43		-> key=mysecret value=43
+	//   E1                           -> secret
+	//   E1/mysecret = 42             -> key=mysecret value=42
+	//   E1/                          -> subdir in Vault
+	//   E1/subsecret                 -> secret
+	//   E1/subsecret/mysecret = 43   -> key=mysecret value=43
 	// this would have thrown an error, because for E1/subsecret/mysecret it would
 	// have r[CKey] == true AND r[CValue] == true
 	// this would cause errors in any further calculations
