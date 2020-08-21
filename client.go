@@ -2,11 +2,11 @@ package vaulthelper
 
 import (
 	"github.com/hashicorp/vault/api"
-	pfvault "github.com/postfinance/vault/kv"
+	pfkv "github.com/postfinance/vault/kv"
 )
 
 // GetClient returns a postfinance vault client.
-func GetClient(conf *api.Config, approleid string) (*pfvault.Client, error) {
+func GetClient(conf *api.Config, approleid string) (*pfkv.Client, error) {
   // Create new vault client with vault configuration
   vc, err := api.NewClient(conf) // VaultClient
   if err != nil {
@@ -19,8 +19,8 @@ func GetClient(conf *api.Config, approleid string) (*pfvault.Client, error) {
   }
   // Set accessToken
   vc.SetToken(accessToken)
-  // Create new pfvault client with vault client
-  pfc, err := pfvault.New(vc, "secret/") //PostFinanceClient
+  // Create new pfkv client with vault client
+  pfc, err := pfkv.New(vc, "secret/") //PostFinanceClient
   if err != nil {
     return nil, err
   }
