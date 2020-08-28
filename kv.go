@@ -1,8 +1,8 @@
 package vaulthelper
 
 import (
-	"path"
 	"fmt"
+	"path"
 
 	//"github.com/hashicorp/vault/api"
 	pfkv "github.com/postfinance/vault/kv"
