@@ -16,8 +16,9 @@ import (
 func main() {
 	if len(os.Args) < 3 {
 		fmt.Printf("Usage: %s VAULT_ADDR VAULT_TOKEN PATH...\n", os.Args[0])
-		fmt.Printf("A good PATH List would be: \"/\" \"hello\" \"hello/foo\" \"subdir\" \"subdir/mury\" \"subdir/mury/foo2\" \"asdf\" \"subdir/asdf\" \"subdir/mury/asdf\"")
-		fmt.Printf("To get VAULT_TOKEN, do: vault write auth/approle/login role_id=$ROLEID\n")
+		fmt.Printf("  %s $VAULT_ADDR $VAULT_TOKEN \"/\" \"hello\" \"hello/foo\" \"subdir\" \"subdir/mury\" \"subdir/mury/foo2\" \"asdf\" \"subdir/asdf\" \"subdir/mury/asdf\"\n", os.Args[0])
+		fmt.Printf("  A good PATH List would be: \"/\" \"hello\" \"hello/foo\" \"subdir\" \"subdir/mury\" \"subdir/mury/foo2\" \"asdf\" \"subdir/asdf\" \"subdir/mury/asdf\"\n")
+		fmt.Printf("  To get VAULT_TOKEN, do: vault write auth/approle/login role_id=$ROLEID\n")
 		os.Exit(1)
 	}
 	fmt.Println(os.Args[0])
