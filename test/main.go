@@ -10,7 +10,7 @@ import (
 
 	"github.com/hashicorp/vault/api"
 	vh "github.com/muryoutaisuu/vaulthelper"
-	pfvault "github.com/postfinance/vault/kv"
+	pfvault "github.com/postfinance/vaultkv"
 )
 
 func main() {
