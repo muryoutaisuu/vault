@@ -5,7 +5,7 @@ import (
 	"path"
 
 	//"github.com/hashicorp/vault/api"
-	pfkv "github.com/postfinance/vault/kv"
+	pfkv "github.com/postfinance/vaultkv"
 )
 
 // Filetype defines the type of the returned value element of vault

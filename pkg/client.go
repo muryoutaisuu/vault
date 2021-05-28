@@ -2,7 +2,7 @@ package vaulthelper
 
 import (
 	"github.com/hashicorp/vault/api"
-	pfkv "github.com/postfinance/vault/kv"
+	pfkv "github.com/postfinance/vaultkv"
 )
 
 // GetClient returns a postfinance vault client.
