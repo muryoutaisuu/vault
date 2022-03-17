@@ -13,9 +13,18 @@ import (
 	pfvault "github.com/postfinance/vaultkv"
 )
 
+/*
+This Script just tests, what type different kv paths are detected to be by vaulthelper
+A path may be path and secret at the same time!
+
+Args[0]:        Binaryname
+Args[1]:        HTTPS Address to vault instance
+Args[2]:        Valid access token for vault
+Args[3:]:       paths to test
+*/
 func main() {
 	if len(os.Args) < 3 {
-		fmt.Printf("Usage: %s VAULT_ADDR VAULT_TOKEN PATH...\n", os.Args[0])
+		fmt.Printf("Usage: %s VAULT_ADDR VAULT_TOKEN PATHS...\n", os.Args[0])
 		fmt.Printf("  %s $VAULT_ADDR $VAULT_TOKEN \"/\" \"hello\" \"hello/foo\" \"subdir\" \"subdir/mury\" \"subdir/mury/foo2\" \"asdf\" \"subdir/asdf\" \"subdir/mury/asdf\"\n", os.Args[0])
 		fmt.Printf("  A good PATH List would be: \"/\" \"hello\" \"hello/foo\" \"subdir\" \"subdir/mury\" \"subdir/mury/foo2\" \"asdf\" \"subdir/asdf\" \"subdir/mury/asdf\"\n")
 		fmt.Printf("  To get VAULT_TOKEN, do: vault write auth/approle/login role_id=$ROLEID\n")
